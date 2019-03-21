@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>click the blocks to find the pic.</title>
+<style type="text/css">
+	div {
+        width:800px;
+        height:700px;
+        margin:0 auto;
+        top:5px;
+	}
+    html{
+        font-family: Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
+    }
+    header {
+        font-size: 18px;
+    }
+	p:hover {
+        background:red;
+        cursor: pointer;
+    }
+	p{
+	color:blue;
+    overflow:auto;
+    font-size:18px; 
+    text-align:center;
+    line-height:100px;
+	width:150px;  
+	height:150px;  
+	margin:5px;  
+	background: gray;  
+	display: inline-grid;
+	}
+    img{
+    width:148px;  
+    height:148px;
+    border:1px solid green;
+    display: inline-grid;
+    } 
+</style>
+
+<script type="text/javascript">
+	function getAnswer(e){
+       
+        if(!e){  
+          var e = window.event;  
+        }  
+        //获取事件点击元素  
+        var targ = e.target; 
+        //获取元素属性  
+        var answer = targ.getAttribute("answer");
+        targ.setAttribute("onclick","");
+        if(answer == 1){
+            targ.innerHTML = "Gold! Hah~";
+            alert("Gold! Hah~");
+        }
+        else{
+            targ.innerHTML = "Not Here!";
+        };
+	}
+</script>
+</head>
+
+<body>
+<header>
+To win this game, you need to find out the gold which was hidden by the blocks.
+</header>
+<div id="box"></div>
+<script type="text/javascript">
+	    var dot = document.getElementById("box");
+        var bingo = Math.ceil(Math.random()*20)
+        for (var i = 1; i <= 20; i++) {
+        		var para = document.createElement("p");
+        		para.setAttribute("id",String(i));
+        		para.setAttribute("answer",0);
+        		para.setAttribute("onclick","getAnswer(event)");
+        		dot.appendChild(para);
+        	}
+        var para = document.getElementById(String(bingo));
+        para.setAttribute("answer",1);
+</script>
+</body>
+</html>

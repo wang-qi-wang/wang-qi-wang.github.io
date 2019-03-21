@@ -1,9 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>welcome!</title>
+<meta charset="utf-8" />
+<link rel="icon" href="pics/00.ico" mce_href="pics/00.ico" type="image/x-icon">
+<link rel="short icon" href="pics/00.ico" mce_href="pics/00.ico" type="image/x-icon">
+	<title>WangQi's Personal Website</title>
+	<script type="text/javascript"> 
+	function switchHtml(subHtml){
+		document.getElementById("subHtml").setAttribute("src",subHtml); 
+	}
+	</script>
+	<style type="text/css">
+		body{
+			background-color: white;
+			font-family: Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
+		 }
+		div.total{
+			width: 800px;
+			margin:0 auto 0 auto;
+			background-color: white;
+		}
+		div.logo img{
+			height: 100%;
+			float: left;
+			cursor: pointer;
+		}
+		div.logo{
+			height: 50px;
+			background-color: #4A4A4A;			
+		}
+		div.logo header{
+			margin-left: 50px;
+			line-height: 50px;
+			font-size: 20px;
+			color: white;
+			display: inline-block;
+			cursor: pointer;
+		}
+		#footer{
+     		margin-top: 15px;
+    		font-size: 13px;
+    		color: #666;
+    		line-height: .5em;
+		}
+	</style>
 </head>
 <body>
-
+	<div class="total">
+		<div class="logo">
+			<img src="pics/0.jpg" onclick="location.href='index.html'">
+			<header onclick="switchHtml('home.html')">Home</header>
+			<header onclick="switchHtml('findMeGame.html')">Game</header>
+			<header onclick="switchHtml('download.html')">Download</header>
+			<header onclick="switchHtml('others.html')">Others</header>
+			<header onclick="switchHtml('contact.html')">Contact</header>
+		</div>
+		<hr/>
+		<div class="content">
+			<iframe align= "top" src="home.html" id=subHtml width=800px height=800px marginheight= "0" marginwidth= "0" hspeace= "0" vspace= "0" frameborder= "0" scrolling= "auto" ></iframe>
+		</div>
+		<hr/>
+		<div id="footer">
+		Copyright ©2018 WangQi, All Rights Reserved
+		</div>
+	</div>
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>photo story</title>
+	<script type="text/javascript">
+	var imgArray = new Array();
+	var imgDisc = new Array();
+    imgArray[0] = "pics/zhx.jpg";
+    imgDisc[0] = "One of my friends is a naughty boy. Join us to have a voyage of discovery.";
+    imgArray[1] = "pics/xhf.jpg";
+    imgDisc[1] = "A night attack on the old Summer Palace with another naughty boy.";
+    var len = imgArray.length;
+    var index = Math.floor(Math.random()*len);
+    function autoPic(){  
+        index = index + len + 1;
+        index = index % len;
+        document.getElementById("showPic").setAttribute("src","");
+        document.getElementById("showPic").setAttribute("src",imgArray[index]);
+        document.getElementById("discription").innerHTML=imgDisc[index];
+        setTimeout("autoPic()",30000);
+	}
+	function switchPic(direction){  
+    index = index + len;
+        if(direction == "right"){
+        	index = index + 1;
+        }else{
+        	index = index - 1;
+        }
+        index = index % len;
+        document.getElementById("showPic").setAttribute("src","");
+        document.getElementById("showPic").setAttribute("src",imgArray[index]); 
+        document.getElementById("discription").innerHTML=imgDisc[index];
+	}
+	</script>
+	<style type="text/css">
+		body{
+			font:18px Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
+			width: 800px;
+			margin:0 auto 0 auto;
+		}
+		div.img {
+			height: 500px;
+			background-color: white;
+		}
+		div img{
+			width:800px;
+			height: 500px;
+			margin:0 auto;
+		}
+		p.left{
+			float:left;
+			cursor: pointer;
+		}
+		p.right{
+			float:right;
+			cursor: pointer;
+		}
+		.discription {
+			text-indent: 0em;
+			text-align: left;
+			margin: 10px 0;
+			padding: 0 0;
+		}
+	</style>
+</head>
+<body onload="autoPic()">
+<div class="img">
+	<img id= "showPic" src="">
+</div>
+<div class="text">
+	<p class="left" onclick="switchPic('left')"> << Prev << </p>
+	<p class="right" onclick="switchPic('right')"> >> Next >> </p>
+	<br/>
+	<br/>
+	<p id="discription"></p>
+</div>
+</body>
+</html>
